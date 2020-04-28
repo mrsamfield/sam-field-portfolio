@@ -9,12 +9,12 @@ const two = new Two(params);
 two.appendTo(container);
 
 // config for our animation
-const numberOfShapes = 70;
+const numberOfShapes = 100
 const shapes = [];
 
 const lineWeight = params.height / (numberOfShapes * 2);
 const startWidth = params.width;
-const loopDuration = 5 * 60;
+const loopDuration = 10 * 60;
 const aDelay = 0.001;
 
 const startRotation = 0;
@@ -27,7 +27,7 @@ for (let i = 0; i < numberOfShapes; i++) {
 
   const shape = two.makeRectangle(x, y, startWidth, lineWeight);
   shape.noStroke();
-  shape.fill = "rgba(255, 255, 255, 0.25)";
+  shape.fill = "rgba(255, 255, 255, 0.3)"
   shapes.push(shape);
 }
 
@@ -42,6 +42,9 @@ two.bind("update", function(frameCount) {
 
   // 2 timelines
   shapes.forEach((shape, i) => {
+    //delays
+    const aStart = 0.001 * (numberOfShapes - i)
+    const aEnd = 0.001 * i
     
     //reset rotation
     if (t === 0) {
@@ -54,14 +57,18 @@ two.bind("update", function(frameCount) {
 
     //split timeline
     if (t < 0.5) {
-      u = mapAndClamp(t, 0, 0.5, 1, 0);
+      u = mapAndClamp(t, 0 + aStart, 0.5 - aEnd, 1, 0);
     } else {
-      u = mapAndClamp(t, 0.5, 1, 0, 1);
+      u = mapAndClamp(t, 0.5 + aStart, 1 - aEnd, 0, 1);   
     }
 
-    w = -1 * (lineWeight + (startWidth - lineWeight) * u);
-
-    r = mapAndClamp(t, 0, 1, startRotation, endRotation);
+    w = -1 * (lineWeight + (startWidth - lineWeight) * easeInOutCubic(u));
+    
+    if(i % 2) {
+      r = mapAndClamp(t, 0, 1, startRotation, endRotation);
+    } else {
+      r = mapAndClamp(t, 0, 1, endRotation, startRotation);
+    }
 
     shape.rotation = r;
     shape.width = w;
