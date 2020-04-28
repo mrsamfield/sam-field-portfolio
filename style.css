@@ -1,11 +1,189 @@
-/* CSS files add styling rules to your content */
-
 body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
+	font-family: monospace;
+	font-size: 16px;
+	line-height: 1.5;
+	
+	background-color: #ffffff;
+	color: #fff0ff;
+	margin: 0;
+  padding: 0;
 }
 
 h1 {
-  font-style: italic;
-  color: #373fff;
+	font-size: 24px;
+	font-weight: 700;
+  color: rgb(255, 240, 255);
+  width: 100%;
+  text-align: center;
+  padding: 10px 0 10px 0;
 }
+
+p {
+  font-weight: 400;
+}
+
+a.toggle-nav {
+  position: fixed;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  text-decoration: none;
+  top:  0;
+  left:  0;
+  z-index: 1;
+  padding:  24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: left 0.25s;
+}
+
+a.toggle-nav span {
+  padding-left: 15px;
+}
+
+a img {
+  height: 15px;
+  transition: transform 0.5s;
+}
+
+a img.open {
+  transform: rotate(540deg);
+}
+
+a.toggle-nav.open {
+  left: 250px;
+}
+
+section {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+nav {
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  z-index: 1;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  transition: left 0.25s;
+}
+
+nav.open {
+  left: 0;
+}
+
+div.links-wrap {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-weight: 200;
+  padding: 20px 0 0 0;
+  
+}
+
+div.links-wrap a{
+  color: white;
+  padding: 5px;
+  display: inline-block;
+  position: relative;
+/*   border-bottom: solid 1px white; */
+  font-weight: 400;
+  border-radius: 5px;
+  transition: transform 0.25s;
+}
+
+div.links-wrap a:hover {
+  box-shadow: 5px 5px 0 #fff0ff;
+  transform: translate(-5px, -5px);
+}
+
+div.headshot div.headshot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.headshot-container img.headshot {
+  width: 40%;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+div.playground {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: margin-left 0.25s;
+  overflow: hidden;
+}
+
+div.playground.open {
+  margin-left: 250px;
+}
+
+div.stickerSpace {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+  background-color: rgb(255, 240, 255);
+}
+
+div.label {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(5deg);
+  width: auto;
+  padding: 3px 25px 3px 25px;
+  font-weight: 400;
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  box-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 1);
+  white-space: nowrap;
+}
+
+section.about-me {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 235, 151, 1);
+  transition: margin-left 0.25s;
+  display:  flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+section.about-me.open {
+  margin-left: 250px;
+}
+
+section.about-me h1 {
+  width: 500px;
+  max-width: 80vw;
+  text-align: left;
+  color: #000000;
+}
+
+section.about-me p {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+  width: 500px;
+  max-width: 80vw;
+}
+

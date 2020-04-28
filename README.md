@@ -5,7 +5,7 @@ Click `Show` in the header to see your app live. Updates to your code will insta
 
 **Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
 
-Find out more [about Glitch](https://glitch.com/about).
+Find out more [about Glitch](https://glitch.com/about). Hi There.
 
 
 Your Project
@@ -34,4 +34,5 @@ Drag in `assets`, like images or music, to add them to your project
 Made by [Glitch](https://glitch.com/)
 -------------------
 
-\ ゜o゜)ノ
+\ ゜o゜)ノ HEY!
+

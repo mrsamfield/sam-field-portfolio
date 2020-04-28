@@ -1,27 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Hello!</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
-  </head>  
-  <body>
-    <h1>Hi there!</h1>
-    
-    <p>
-      I'm your cool new webpage. Made with <a href="https://glitch.com">Glitch</a>!
-    </p>
-
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
-  </body>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="generator" content="SuperHi">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Random Sticker</title>
+		<link rel="stylesheet" href="/_base.css">
+		<link rel="stylesheet" href="/style.css">
+	</head>
+	<body>
+		<script src="/superhi.js"></script>
+		<section class="intro">
+		  <a class="toggle-nav">
+		    <img src="arrow.png" class="arrow" />
+		    <span class="menulabel">Menu</span>
+		  </a>
+		  <nav class="desktop-nav">
+		    <h1>
+		      Hi, I'm Sam
+		    </h1>
+		    <div class="headshot">
+		      <div class="headshot-container">
+		        <img class="headshot" src="headshot.jpg" />
+		      </div>
+		    </div>
+		    <div class="links-wrap">
+		      <a href="#" class="toggle-nav">About Me</a>
+		      <a href="#" class="toggle-nav">Portfolio</a>
+		      <a href="#" class="toggle-nav">Linkedin</a>
+		      <a href="#" class="toggle-nav">Download CV</a>
+		      <a href="#" class="toggle-nav">Instagram</a>
+		      <a href="#" class="toggle-nav">Front-end</a>
+		    </div>
+		  </nav>
+		
+		  <div class="playground">
+		    <div class="stickerSpace" id="stickerSpace">
+		      <div class="label">
+		        Dont label me...
+		      </div>
+		    </div>
+		  </div>
+		</section>
+		
+		<section class="about-me bganimation">
+		<!--   <h1 class="title">About Me</h1>
+		  <p>
+		    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+		    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+		    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+		    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+		    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		  </p> -->
+		</section>
+		
+		<script src="stickers.js"></script>
+		<script src="nav.js"></script>
+		<script src="utils.js"></script>
+		<script src="two.min.js"></script>
+		<script src="animation.js"></script>
+	</body>
 </html>
