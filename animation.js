@@ -33,35 +33,33 @@ for (let i = 0; i < numberOfShapes; i++) {
 
 two.bind("update", function(frameCount) {
   // main timeline
-  const currentFrame = frameCount % loopDuration
-  const t = currentFrame / loopDuration
- 
+  const currentFrame = frameCount % loopDuration;
+  const t = currentFrame / loopDuration;
+
   //declares variables
   let r = startRotation;
   let w = startWidth;
 
   // 2 timelines
   shapes.forEach((shape, i) => {
-    let aStart = aDelay * i;
-    let aEnd = aDelay * (numberOfShapes - i);
     
     //reset rotation
     if (t === 0) {
-      r = startRotation
-      shape.rotation = r
+      r = startRotation;
+      shape.rotation = r;
     }
+    
+    //reset timeline
+    let u = 0;
 
     //split timeline
     if (t < 0.5) {
-      //timeline1
-      u = mapAndClamp(t, 0, 0.5, 0, 1);
-      console.log("timeline 1  = ", u)      
-      w = mapAndClamp
+      u = mapAndClamp(t, 0, 0.5, 1, 0);
     } else {
-      //timeline2
       u = mapAndClamp(t, 0.5, 1, 0, 1);
-      console.log("timeline 2  = ", u)  
     }
+
+    w = -1 * (lineWeight + (startWidth - lineWeight) * u);
 
     r = mapAndClamp(t, 0, 1, startRotation, endRotation);
 
@@ -70,4 +68,4 @@ two.bind("update", function(frameCount) {
   });
 });
 
-// two.play();
+two.play();
