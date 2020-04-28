@@ -43,14 +43,17 @@ two.bind('update', function(frameCount) {
     let aStart = aDelay * i
     let aEnd = aDelay * (numberOfShapes - i)
     let r = startRotation
-    
+    let w = startWidth
  
-      const u = mapAndClamp(t, 0.25 + aStart, 0.5 - aEnd, 0, 1)
+      const u = mapAndClamp(t, 0 + aStart, 1 - aEnd, 0, 1)
       const cu = easeInOutCubic(u)
+      w = mapAndClamp(cu, 0, 0.5, startWidth, lineWeight)
+      w = mapAndClamp(cu, 0.5, 1, lineWeight, startWidth)
       r = mapAndClamp(cu, 0, 1, endRotation, startRotation)
     
     
     shape.rotation = r
+    shape.width = w
   })
 })
 
