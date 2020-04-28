@@ -1,6 +1,7 @@
 const stickerSpace = document.querySelector('div.stickerSpace')
 let slide = 0
 let z = 1
+let st
 
 const labels = [
   {copy: "Hi. I'm Sam"},
@@ -36,3 +37,5 @@ stickerSpace.addEventListener('click', function(e) {
   cursorY = e.clientY
   stick(cursorX, cursorY)
 })
+
+
