@@ -9,7 +9,7 @@ const two = new Two(params);
 two.appendTo(container);
 
 // config for our animation
-const numberOfShapes = 30;
+const numberOfShapes = 70;
 const shapes = [];
 
 const lineWeight = params.height / (numberOfShapes * 2);
@@ -18,7 +18,7 @@ const loopDuration = 5 * 60;
 const aDelay = 0.001;
 
 const startRotation = 0;
-const endRotation = (fullRotation * 180) / 360;
+const endRotation = fullRotation * (180 / 360);
 
 // make shapes
 for (let i = 0; i < numberOfShapes; i++) {
@@ -35,25 +35,31 @@ two.bind("update", function(frameCount) {
   // main timeline
   const currentFrame = frameCount % loopDuration;
   const t = currentFrame / loopDuration;
+  let r = startRotation;
+  let w = startWidth;
 
   // 2 timelines
   shapes.forEach((shape, i) => {
     let aStart = aDelay * i;
     let aEnd = aDelay * (numberOfShapes - i);
-    let r = startRotation;
-    let w = startWidth;
+    
+    if (t === 0) {
+      
+    }
+
+
+    if (t < 0.5) {
+      u = mapAndClamp(t, 0, 0.5, startWidth, lineWeight);
+      
+    } else {
+      u = mapAndClamp(t, 0.5, 1, lineWeight, startWidth);
+    }
 
     r = mapAndClamp(t, 0, 1, startRotation, endRotation);
-
-    if (t <= 0.5) {
-      w = mapAndClamp(t, 0, 0.5, startWidth, lineWeight);
-    } else {
-      w = mapAndClamp(t, 0.5, 1, lineWeight, startWidth);
-    }
 
     shape.rotation = r;
     shape.width = w;
   });
 });
 
-two.play();
+// two.play();
