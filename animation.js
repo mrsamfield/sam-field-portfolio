@@ -45,13 +45,17 @@ two.bind('update', function(frameCount) {
     let r = startRotation
     let w = startWidth
  
-      const u = mapAndClamp(t, 0 + aStart, 1 - aEnd, 0, 1)
-      const cu = easeInOutCubic(u)
-      w = mapAndClamp(cu, 0, 0.5, startWidth, lineWeight)
-      w = mapAndClamp(cu, 0.5, 1, lineWeight, startWidth)
-      r = mapAndClamp(cu, 0, 1, endRotation, startRotation)
     
-    
+      
+    if (t <= 0.5) {
+      const u = mapAndClamp(t, 0 + aStart, 0.5 - aEnd, 0, 1)
+      w = mapAndClamp(u, 0, 1, startWidth, lineWeight)
+      r = mapAndClamp(u, 0, 1, startRotation, endRotation)
+    } else {
+      const u = mapAndClamp(t, 0.5 + aStart, 1 - aEnd, 0, 1)
+      w = mapAndClamp(u, 0, 1, startWidth, lineWeight)
+      r = mapAndClamp(u, 0, 1, startRotation, endRotation)
+    }
     shape.rotation = r
     shape.width = w
   })
