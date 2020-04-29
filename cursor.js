@@ -2,7 +2,7 @@ const cursorContainer = document.querySelector("div.cursor-container")
 let cursor = ""
 
 const createCursor = function () {
-    cursor = cursorContainer.appendChild("div")
+    cursor = document.createElement("div")
     cursor.classList.add("cursor")
 }
 
