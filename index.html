@@ -1,50 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Random Sticker</title>
-		<link rel="stylesheet" href="/_base.css">
-		<link rel="stylesheet" href="/style.css">
-	</head>
-	
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Random Sticker</title>
+    <link rel="stylesheet" href="/_base.css" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
   <body>
-		<section class="intro">
-		  <a class="toggle-nav">
-		    <img src="https://cdn.glitch.com/314a19bb-de5b-47e0-9a68-3d7b37642cb2%2Farrow.png?v=1588077190429" class="arrow" />
-		    <span class="menulabel">Menu</span>
-		  </a>
-		  <nav class="desktop-nav">
-		    <h1>
-		      Hi, I'm Sam
-		    </h1>
-		    <div class="headshot">
-		      <div class="headshot-container">
-		        <img class="headshot" src="https://cdn.glitch.com/314a19bb-de5b-47e0-9a68-3d7b37642cb2%2Fheadshot.jpg?v=1588077191061" />
-		      </div>
-		    </div>
-		    <div class="links-wrap">
-		      <a href="#" class="toggle-nav">About Me</a>
-		      <a href="#" class="toggle-nav">Portfolio</a>
-		      <a href="#" class="toggle-nav">Linkedin</a>
-		      <a href="#" class="toggle-nav">Download CV</a>
-		      <a href="#" class="toggle-nav">Instagram</a>
-		      <a href="#" class="toggle-nav">Front-end</a>
-		    </div>
-		  </nav>
-		
-		  <div class="playground">
-		    <div class="stickerSpace" id="stickerSpace">
-		      <div class="label">
-		        Dont label me...
-		      </div>
-		    </div>
-		  </div>
-		</section>
-		
-		<section class="about-me bganimation">
-		<!--   <h1 class="title">About Me</h1>
+    <section class="intro">
+      <a class="toggle-nav">
+        <img
+          src="https://cdn.glitch.com/314a19bb-de5b-47e0-9a68-3d7b37642cb2%2Farrow.png?v=1588077190429"
+          class="arrow"
+        />
+        <span class="menulabel">Menu</span>
+      </a>
+      <nav class="desktop-nav">
+        <h1>
+          Hi, I'm Sam
+        </h1>
+        <div class="headshot">
+          <div class="headshot-container">
+            <img
+              class="headshot"
+              src="https://cdn.glitch.com/314a19bb-de5b-47e0-9a68-3d7b37642cb2%2Fheadshot.jpg?v=1588077191061"
+            />
+          </div>
+        </div>
+        <div class="links-wrap">
+          <a href="#" class="toggle-nav">About Me</a>
+          <a href="#" class="toggle-nav">Portfolio</a>
+          <a href="#" class="toggle-nav">Linkedin</a>
+          <a href="#" class="toggle-nav">Download CV</a>
+          <a href="#" class="toggle-nav">Instagram</a>
+          <a href="#" class="toggle-nav">Front-end</a>
+        </div>
+      </nav>
+
+      <div class="playground">
+        <div class="stickerSpace" id="stickerSpace">
+          <div class="label">
+            Dont label me...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-me bganimation">
+      <!--   <h1 class="title">About Me</h1>
 		  <p>
 		    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 		    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -52,12 +58,17 @@
 		    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
 		    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		  </p> -->
-		</section>
-		
+    </section>
+
+    <div class="cursor-container">
+      <!-- if device has hover state, custom cursor goes here -->
+    </div>
+
     <script src="utils.js"></script>
-		<script src="stickers.js"></script>
-		<script src="nav.js"></script>
-		<script src="two.min.js"></script>
-		<script src="animation.js"></script>
-	</body>
+    <script src="two.min.js"></script>
+    <script src="cursor.js"></script>
+    <script src="nav.js"></script>
+    <script src="stickers.js"></script>
+    <script src="animation.js"></script>
+  </body>
 </html>
