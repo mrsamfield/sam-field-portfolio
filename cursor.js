@@ -4,6 +4,7 @@ let cursor = ""
 const createCursor = function () {
     cursor = document.createElement("div")
     cursor.classList.add("cursor")
+    cursorContainer.appendChild(cursor)
 }
 
 const lockCursor = function (cursor, x, y) {
