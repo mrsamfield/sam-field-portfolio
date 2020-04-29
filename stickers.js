@@ -3,7 +3,7 @@ let slide = 0
 let z = 1
 let st
 
-ckers = c[]onst labels = [
+labels = [
   {copy: "Hi. I'm Sam"},
   {copy: 'I am currently based in Liverpool'},
   {copy: '(a very cool city)'},
