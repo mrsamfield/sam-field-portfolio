@@ -22,6 +22,11 @@ p {
   font-weight: 400;
 }
 
+@media (hover: hover){
+  
+}
+
+
 a.toggle-nav {
   position: fixed;
   font-weight: 700;
