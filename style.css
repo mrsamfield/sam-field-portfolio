@@ -22,9 +22,11 @@ p {
   font-weight: 400;
 }
 
-@media (hover: hover){
-  
-}
+/* @media (hover: hover){
+  html {
+    cursor: none;
+  }
+} */
 
 
 a.toggle-nav {
