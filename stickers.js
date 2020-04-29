@@ -3,7 +3,7 @@ let slide = 0
 let z = 1
 let st
 
-const labels = [
+ckers = c[]onst labels = [
   {copy: "Hi. I'm Sam"},
   {copy: 'I am currently based in Liverpool'},
   {copy: '(a very cool city)'},
@@ -39,3 +39,4 @@ stickerSpace.addEventListener('click', function(e) {
 })
 
 
+i
