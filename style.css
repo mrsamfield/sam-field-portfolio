@@ -22,13 +22,6 @@ p {
   font-weight: 400;
 }
 
-/* @media (hover: hover){
-  html {
-    cursor: none;
-  }
-} */
-
-
 a.toggle-nav {
   position: fixed;
   font-weight: 700;
@@ -194,12 +187,3 @@ section.about-me p {
   max-width: 80vw;
 }
 
-div.cursor {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
