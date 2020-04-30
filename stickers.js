@@ -42,7 +42,6 @@ const stick = function(x, y) {
 
 //Starts the drag
 const dragStart = function(e) {
-  rotation = Math.floor(Math.random() * 20) - 10;
   if (e.target !== e.currentTarget) {
         active = true;
 
@@ -102,11 +101,21 @@ const dragEnd = function(e) {
       activeItem = null;
 };
 
-// stickerSpace.addEventListener("touchstart", dragStart, false);
-// stickerSpace.addEventListener("touchend", dragEnd, false);
-// stickerSpace.addEventListener("touchmove", drag, false);
+stickerSpace.addEventListener("touchstart", function (e) {
+  dragStart(e)
+})
+
+stickerSpace.addEventListener("touchend", function (e) {
+  dragEnd(e)
+})
+
+stickerSpace.addEventListener("touchmove", function (e) {
+  drag(e)
+})
+
 
 stickerSpace.addEventListener("mousedown", function (e) {
+  rotation = Math.floor(Math.random() * 10) - 5;
   if (e.target === stickerSpace) {
     stick(e.clientX, e.clientY);
     activeItem = "";
