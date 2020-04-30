@@ -5,11 +5,8 @@ let xLabel = "";
 const createCursor = function() {
   cursor = document.createElement("div");
   cursor.classList.add("cursor");
-  xLabel = document.createElement("p")
-  xLabel.classList.add("x")
+  cursor.innerHTML = '<p class="x">Oh, Hi There!</p> <p class="x">Oh, Hi There!</p>'
   cursorContainer.appendChild(cursor);
-  cursor.appendChild("xLabel")
-  xLabel.innerHTML = "Oh, Hi There!"
 };
 
 const lockCursor = function(cursor, x, y) {
