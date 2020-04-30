@@ -13,6 +13,7 @@ let initialX = "";
 let initialY = "";
 let xOffset = 0;
 let yOffset = 0;
+let rotation = ""
 
 const labels = [
   { copy: "Hi. I'm Sam" },
@@ -41,6 +42,7 @@ const stick = function(x, y) {
 
 //Starts the drag
 const dragStart = function(e) {
+  rotation = Math.floor(Math.random() * 20) - 10;
   if (e.target !== e.currentTarget) {
         active = true;
 
@@ -88,9 +90,7 @@ if (active) {
 };
 
 const setTranslate = function(xPos, yPos, el) {
-  const rotation = Math.floor(Math.random() * 30) - 15;
-  // el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-  el.style.transform = `translate3d(${xPos})`
+  el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) rotate(${rotation}deg)`
 };
 
 const dragEnd = function(e) {
@@ -98,7 +98,6 @@ const dragEnd = function(e) {
         activeItem.initialX = activeItem.currentX;
         activeItem.initialY = activeItem.currentY;
       }
-
       active = false;
       activeItem = null;
 };
