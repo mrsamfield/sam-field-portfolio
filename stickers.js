@@ -41,13 +41,13 @@ const stick = function(x, y) {
 
 //Starts the drag
 const dragStart = function(e) {
-  if (e.type === "touchstart") {
-    initialX = e.touches[0].clientX - xOffset;
-    initialY = e.touches[0].clientY - yOffset;
-  } else {
+  // if (e.type === "touchstart") {
+  //   initialX = e.touches[0].clientX - xOffset;
+  //   initialY = e.touches[0].clientY - yOffset;
+  // } else {
     initialX = e.clientX - xOffset;
     initialY = e.clientY - yOffset;
-  }
+  // }
 
   if (e.target === dragItem) {
     active = true;
@@ -58,13 +58,13 @@ const drag = function(e) {
   if (active) {
     e.preventDefault();
 
-    if (e.type === "touchmove") {
-      currentX = e.touches[0].clientX - initialX;
-      currentY = e.touches[0].clientY - initialY;
-    } else {
+    // if (e.type === "touchmove") {
+    //   currentX = e.touches[0].clientX - initialX;
+    //   currentY = e.touches[0].clientY - initialY;
+    // } else {
       currentX = e.clientX - initialX;
       currentY = e.clientY - initialY;
-    }
+  // }
 
     xOffset = currentX;
     yOffset = currentY;
@@ -84,22 +84,28 @@ const dragEnd = function(e) {
   active = false;
 };
 
-stickerSpace.addEventListener("click", function(e) {
-  if(e.target === stickerSpace){
-  stick(e.clientX, e.clientY);
-  dragItem = ""
-  }
-  for (let i = 0; i <= stickers.length; i++){
-  if(e.target === stickers[i]) {
-    dragItem = stickers[i]
-  }
-  }
-});
+// stickerSpace.addEventListener("touchstart", dragStart, false);
+// stickerSpace.addEventListener("touchend", dragEnd, false);
+// stickerSpace.addEventListener("touchmove", drag, false);
 
-stickerSpace.addEventListener("touchstart", dragStart, false);
-stickerSpace.addEventListener("touchend", dragEnd, false);
-stickerSpace.addEventListener("touchmove", drag, false);
+stickerSpace.addEventListener("mousedown", function (e) {
+  if (e.target === stickerSpace) {
+    stick(e.clientX, e.clientY);
+    dragItem = "";
+  }
+  for (let i = 0; i <= stickers.length; i++) {
+    if (e.target === stickers[i]) {
+      dragItem = stickers[i];
+    }
+  }
+  dragStart(e)
+})
 
-stickerSpace.addEventListener("mousedown", dragStart, false);
-stickerSpace.addEventListener("mouseup", dragEnd, false);
-stickerSpace.addEventListener("mousemove", drag, false);
+stickerSpace.addEventListener("mouseup", function (e) {
+  dragEnd(e)
+})
+
+// stickerSpace.addEventListener("mousemove", drag, false);
+stickerSpace.addEventListener("mousemove", function (e) {
+  drag(e)
+})
