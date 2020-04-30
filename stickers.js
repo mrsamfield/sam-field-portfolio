@@ -1,7 +1,7 @@
 const stickerSpace = document.querySelector('div.stickerSpace')
 let slide = 0
 let z = 1
-let st
+let stickers = []
 
 const labels = [
   {copy: "Hi. I'm Sam"},
@@ -11,7 +11,7 @@ const labels = [
   {copy: 'I love all things digital design'}
 ]
 
-function stick(x, y) {
+const stick = function (x, y) {
   console.log('stick run')
 
   z = z + 1
@@ -19,23 +19,29 @@ function stick(x, y) {
   console.log('x = ', x, ' y = ', y, 'rotation = ', rotation)
 
   //Creates a new p element and inserts text
-  var para = document.createElement('div')
-  para.innerHTML = labels[slide].copy
-  para.classList.add('label')
-  para.style.left = `${x}px`
-  para.style.top = `${y}px`
-  para.style.transform = `rotate(${rotation}deg) translate(-50%, -50%)`
-  para.style.zIndex = z
+  var sticker = document.createElement('div')
+  sticker.innerHTML = labels[slide].copy
+  sticker.classList.add('label')
+  sticker.style.left = `${x}px`
+  sticker.style.top = `${y}px`
+  sticker.style.transform = `rotate(${rotation}deg) translate(-50%, -50%)`
+  sticker.style.zIndex = z
   //appends text to stickerspace
-  document.getElementById('stickerSpace').appendChild(para)
+  document.getElementById('stickerSpace').appendChild(sticker)
   slide = slide + 1
+  stickers.push(sticker)
+}
+
+const drag = function () {
+  
 }
 
 stickerSpace.addEventListener('click', function(e) {
   console.log('clicked')
-  cursorX = e.clientX
-  cursorY = e.clientY
-  stick(cursorX, cursorY)
+  if (e.target = stickerSpace) {}
+  stick(e.clientX, e.clientY)
+  
 })
+
 
 
