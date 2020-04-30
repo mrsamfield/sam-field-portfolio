@@ -2,7 +2,6 @@ const cursorContainer = document.querySelector("body");
 let cursor = "";
 
 const createCursor = function() {
-  colsole.log
   cursor = document.createElement("div");
   cursor.classList.add("cursor");
   cursorContainer.appendChild(cursor);
@@ -16,5 +15,9 @@ const lockCursor = function(cursor, x, y) {
 createCursor();
 
 document.addEventListener("mousemove", function(e) {
-  console.log(cursor, e.pageX, e.pageY)
+  lockCursor(cursor, e.pageX, e.pageY);
 });
+
+document.addEventListener("scroll", function(e) {
+  lockCursor(cursor, e.pageX + window.pageXOffset, e.pageY + window.pageYOffset);
+})
