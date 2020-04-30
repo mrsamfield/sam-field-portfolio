@@ -196,7 +196,12 @@ div.cursor {
   height: 10px;
   width: 10px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(255, 0, 50, 0.5);
   z-index: 999;
   pointer-events: none;
+  mix-blend-mode: "hard-light";
+}
+
+div.cursor p {
+  
 }
