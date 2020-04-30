@@ -49,8 +49,10 @@ const dragStart = function(e) {
 
         // this is the item we are interacting with
         activeItem = e.target;
+    
         midPointX = 1 * (activeItem.getBoundingClientRect().width / 2)
         midPointY = 1 * (activeItem.getBoundingClientRect().height / 2)
+    
         if (activeItem !== null) {
           if (!activeItem.xOffset) {
             activeItem.xOffset = 0;
