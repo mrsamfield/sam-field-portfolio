@@ -5,7 +5,7 @@ let xLabel = "";
 const createCursor = function() {
   cursor = document.createElement("div");
   cursor.classList.add("cursor");
-  cursor.innerHTML = '<p class="x">Oh, Hi There!</p> <p class="x">Oh, Hi There!</p>'
+  cursor.innerHTML = '<p class="x">Oh, Hi There!</p> <p class="y">Oh, its you!</p>'
   cursorContainer.appendChild(cursor);
 };
 

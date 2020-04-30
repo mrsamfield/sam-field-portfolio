@@ -202,7 +202,18 @@ div.cursor {
   mix-blend-mode: "hard-light";
 }
 
-div.cursor p.x {
+div.cursor p {
   position: absolute;
-  left: 50px;
+  width: 100px;
+  left: 25px;
+  top: -5px;
+  font-size: 8pt;
+  color: rgba(255, 0, 50, 0.5);
+  mix-blend-mode: "hard-light";
+}
+
+div.cursor p.y {
+  left: 0;
+  top: 25px;
+  
 }
