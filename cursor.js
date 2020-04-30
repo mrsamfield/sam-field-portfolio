@@ -1,10 +1,15 @@
 const cursorContainer = document.querySelector("body");
 let cursor = "";
+let xLabel = "";
 
 const createCursor = function() {
   cursor = document.createElement("div");
   cursor.classList.add("cursor");
+  xLabel = document.createElement("p")
+  xLabel.classList.add("x")
   cursorContainer.appendChild(cursor);
+  cursor.appendChild("xLabel")
+  xLabel.innerHTML = "Oh, Hi There!"
 };
 
 const lockCursor = function(cursor, x, y) {
