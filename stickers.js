@@ -2,6 +2,7 @@ const stickerSpace = document.querySelector('div.stickerSpace')
 let slide = 0
 let z = 1
 let stickers = []
+let moveable = ""
 
 const labels = [
   {copy: "Hi. I'm Sam"},
@@ -37,11 +38,20 @@ const drag = function () {
 }
 
 stickerSpace.addEventListener('click', function(e) {
-  console.log('clicked')
-  if (e.target = stickerSpace) {}
+  console.log(e)
+  if (e.target === stickerSpace) {
   stick(e.clientX, e.clientY)
-  
+  }
+  for (let i = 0; i < sticker.length; i++){
+  if (e.target === stickers[i]) {
+    moveable = e.target
+    console.log(moveable)
+  }
+  }
 })
 
+document.addEventListener("mouseup", function () {
+  moveable = ""
+})
 
 
