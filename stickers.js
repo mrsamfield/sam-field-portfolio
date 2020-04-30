@@ -1,8 +1,19 @@
+//stickers
 const stickerSpace = document.querySelector("div.stickerSpace");
 let slide = 0;
 let z = 1;
 let stickers = [];
-let moveable = "";
+
+//for drag
+let dragItem = ""
+let active = false;
+let currentX = ""
+let currentY = ""
+let initialX = ""
+let initialY = ""
+let xOffset = 0;
+let yOffset = 0;
+
 
 const labels = [
   { copy: "Hi. I'm Sam" },
@@ -16,7 +27,7 @@ const stick = function(x, y) {
   z = z + 1;
   const rotation = Math.floor(Math.random() * 30) - 15;
   //Creates a new p element and inserts text
-  var sticker = document.createElement("div");
+  let sticker = document.createElement("div");
   sticker.innerHTML = labels[slide].copy;
   sticker.classList.add("label");
   sticker.style.left = `${x}px`;
@@ -29,30 +40,26 @@ const stick = function(x, y) {
   stickers.push(sticker);
 };
 
-const drag = function(x, y) {
-  if (moveable !== "") {
-    moveable.style.top = x;
-    moveable.style.left = y;
+const drfunction dragStart(e) {
+  if (e.type === "touchstart") {
+    initialX = e.touches[0].clientX - xOffset;
+    initialY = e.touches[0].clientY - yOffset;
+  } else {
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
   }
-};
 
-stickerSpace.addEventListener("mousedown", function(e) {
-  let target = e.target;
-  if (target === stickerSpace) {
-    stick(e.clientX, e.clientY);
-    moveable = ""
+  if (e.target === dragItem) {
+    active = true;
   }
-  for (let i = 0; i < stickers.length; i++) {
-    if (target === stickers[i]) {
-      moveable = target;
-    }
-  }
-});
+}
 
-document.addEventListener("mouseup", function() {
-  moveable = "";
-});
+stickerSpace.addEventListener("click", function (e) {
+  stick(e.clientX, e.clientY)
+})
 
-stickerSpace.addEventListener("mousemove", function(e) {
-  drag(e.clientX, e.clientY)
-});
+stickerSpace.addEventListener("mousedown", dragStart, false);
+stickerSpace.addEventListener("mouseup", dragEnd, false);
+stickerSpace.addEventListener("mousemove", drag, false);
+
+

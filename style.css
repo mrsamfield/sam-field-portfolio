@@ -1,17 +1,17 @@
 body {
-	font-family: monospace;
-	font-size: 16px;
-	line-height: 1.5;
-	background-color: #ffffff;
-	color: #fff0ff;
-	margin: 0;
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #fff0ff;
+  margin: 0;
   padding: 0;
   cursor: none;
 }
 
 h1 {
-	font-size: 24px;
-	font-weight: 700;
+  font-size: 24px;
+  font-weight: 700;
   color: rgb(255, 240, 255);
   width: 100%;
   text-align: center;
@@ -28,10 +28,10 @@ a.toggle-nav {
   color: rgba(0, 0, 0, 1);
   font-size: 16px;
   text-decoration: none;
-  top:  0;
-  left:  0;
+  top: 0;
+  left: 0;
   z-index: 1;
-  padding:  24px;
+  padding: 24px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -88,15 +88,14 @@ div.links-wrap {
   align-items: center;
   font-weight: 200;
   padding: 20px 0 0 0;
-  
 }
 
-div.links-wrap a{
+div.links-wrap a {
   color: white;
   padding: 5px;
   display: inline-block;
   position: relative;
-/*   border-bottom: solid 1px white; */
+  /*   border-bottom: solid 1px white; */
   font-weight: 400;
   border-radius: 5px;
   transition: transform 0.25s;
@@ -163,7 +162,7 @@ section.about-me {
   height: 100vh;
   background-color: rgba(255, 235, 151, 1);
   transition: margin-left 0.25s;
-  display:  flex;
+  display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
@@ -213,5 +212,4 @@ div.cursor p {
 div.cursor p.y {
   left: 0;
   top: 25px;
-  
 }
