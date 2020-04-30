@@ -14,6 +14,7 @@ let initialY = "";
 let xOffset = 0;
 let yOffset = 0;
 let rotation = ""
+let midPoint = ""
 
 const labels = [
   { copy: "Hi. I'm Sam" },
@@ -47,7 +48,7 @@ const dragStart = function(e) {
 
         // this is the item we are interacting with
         activeItem = e.target;
-
+        midPoint = 1 * (activeItem.getBoundingClientRect().width / 2)
         if (activeItem !== null) {
           if (!activeItem.xOffset) {
             activeItem.xOffset = 0;
@@ -58,12 +59,12 @@ const dragStart = function(e) {
           }
 
           if (e.type === "touchstart") {
-            activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
-            activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
+            activeItem.initialX = e.touches[0].clientX - activeItem.xOffset + midpoint;
+            activeItem.initialY = e.touches[0].clientY - activeItem.yOffset + midpoint;
           } else {
             console.log("doing something!");
-            activeItem.initialX = e.clientX - activeItem.xOffset;
-            activeItem.initialY = e.clientY - activeItem.yOffset;
+            activeItem.initialX = e.clientX - activeItem.xOffset + midpoint;
+            activeItem.initialY = e.clientY - activeItem.yOffset + midpoint;
           }
         }
       }
