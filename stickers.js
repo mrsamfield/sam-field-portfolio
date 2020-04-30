@@ -5,15 +5,14 @@ let z = 1;
 let stickers = [];
 
 //for drag
-let dragItem = ""
+let dragItem = "";
 let active = false;
-let currentX = ""
-let currentY = ""
-let initialX = ""
-let initialY = ""
+let currentX = "";
+let currentY = "";
+let initialX = "";
+let initialY = "";
 let xOffset = 0;
 let yOffset = 0;
-
 
 const labels = [
   { copy: "Hi. I'm Sam" },
@@ -40,7 +39,8 @@ const stick = function(x, y) {
   stickers.push(sticker);
 };
 
-const drfunction dragStart(e) {
+//Starts the drag
+const dragStart = function(e) {
   if (e.type === "touchstart") {
     initialX = e.touches[0].clientX - xOffset;
     initialY = e.touches[0].clientY - yOffset;
@@ -52,14 +52,54 @@ const drfunction dragStart(e) {
   if (e.target === dragItem) {
     active = true;
   }
-}
+};
 
-stickerSpace.addEventListener("click", function (e) {
-  stick(e.clientX, e.clientY)
-})
+const drag = function(e) {
+  if (active) {
+    e.preventDefault();
+
+    if (e.type === "touchmove") {
+      currentX = e.touches[0].clientX - initialX;
+      currentY = e.touches[0].clientY - initialY;
+    } else {
+      currentX = e.clientX - initialX;
+      currentY = e.clientY - initialY;
+    }
+
+    xOffset = currentX;
+    yOffset = currentY;
+
+    setTranslate(currentX, currentY, dragItem);
+  }
+};
+
+const setTranslate = function(xPos, yPos, el) {
+  el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+};
+
+const dragEnd = function(e) {
+  initialX = currentX;
+  initialY = currentY;
+
+  active = false;
+};
+
+stickerSpace.addEventListener("click", function(e) {
+  if(e.target === stickerSpace){
+  stick(e.clientX, e.clientY);
+  dragItem = ""
+  }
+  for (let i = 0; i <= stickers.length; i++){
+  if(e.target === stickers[i]) {
+    dragItem = stickers[i]
+  }
+  }
+});
+
+stickerSpace.addEventListener("touchstart", dragStart, false);
+stickerSpace.addEventListener("touchend", dragEnd, false);
+stickerSpace.addEventListener("touchmove", drag, false);
 
 stickerSpace.addEventListener("mousedown", dragStart, false);
 stickerSpace.addEventListener("mouseup", dragEnd, false);
 stickerSpace.addEventListener("mousemove", drag, false);
-
-
