@@ -24,7 +24,3 @@ document.addEventListener("mousemove", function(e) {
   xLabel.innerHTML = x + "px"
   yLabel.innerHTML = y + "px"
 });
-
-document.addEventListener("scroll", function(e) {
-  lockCursor(cursor, e.pageX + window.pageXOffset, e.pageY + window.pageYOffset);
-})

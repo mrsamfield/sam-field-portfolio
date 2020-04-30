@@ -39,14 +39,14 @@ const drag = function () {
 
 stickerSpace.addEventListener('click', function(e) {
   console.log(e)
+  let target = e.target
   if (e.target === stickerSpace) {
   stick(e.clientX, e.clientY)
   }
-  for (let i = 0; i < sticker.length; i++){
-  if (e.target === stickers[i]) {
-    moveable = e.target
-    console.log(moveable)
-  }
+  for (let i = 0; i < stickers.length; i++){
+    if (e.target === stickers[i]) {
+      moveable = e.target
+    }
   }
 })
 
@@ -54,4 +54,10 @@ document.addEventListener("mouseup", function () {
   moveable = ""
 })
 
+stickerSpace.addEventListener("mousemove", function (e) {
+  if (moveable === true) {
+  moveable.style.top = e.clientX
+  moveable.style.left = e.clientY
+  }
+})
 
