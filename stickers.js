@@ -5,7 +5,7 @@ let z = 1;
 let stickers = [];
 
 //for drag
-let dragItem = "";
+let activeItem = "";
 let active = false;
 let currentX = "";
 let currentY = "";
@@ -41,47 +41,66 @@ const stick = function(x, y) {
 
 //Starts the drag
 const dragStart = function(e) {
-  // if (e.type === "touchstart") {
-  //   initialX = e.touches[0].clientX - xOffset;
-  //   initialY = e.touches[0].clientY - yOffset;
-  // } else {
-    initialX = e.clientX - xOffset;
-    initialY = e.clientY - yOffset;
-  // }
+  if (e.target !== e.currentTarget) {
+        active = true;
 
-  if (e.target === dragItem) {
-    active = true;
-  }
+        // this is the item we are interacting with
+        activeItem = e.target;
+
+        if (activeItem !== null) {
+          if (!activeItem.xOffset) {
+            activeItem.xOffset = 0;
+          }
+
+          if (!activeItem.yOffset) {
+            activeItem.yOffset = 0;
+          }
+
+          if (e.type === "touchstart") {
+            activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
+            activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
+          } else {
+            console.log("doing something!");
+            activeItem.initialX = e.clientX - activeItem.xOffset;
+            activeItem.initialY = e.clientY - activeItem.yOffset;
+          }
+        }
+      }
 };
 
 const drag = function(e) {
-  if (active) {
-    e.preventDefault();
+if (active) {
+        if (e.type === "touchmove") {
+          e.preventDefault();
 
-    // if (e.type === "touchmove") {
-    //   currentX = e.touches[0].clientX - initialX;
-    //   currentY = e.touches[0].clientY - initialY;
-    // } else {
-      currentX = e.clientX - initialX;
-      currentY = e.clientY - initialY;
-  // }
+          activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
+          activeItem.currentY = e.touches[0].clientY - activeItem.initialY;
+        } else {
+          activeItem.currentX = e.clientX - activeItem.initialX;
+          activeItem.currentY = e.clientY - activeItem.initialY;
+        }
 
-    xOffset = currentX;
-    yOffset = currentY;
+        activeItem.xOffset = activeItem.currentX;
+        activeItem.yOffset = activeItem.currentY;
 
-    setTranslate(currentX, currentY, dragItem);
-  }
+        setTranslate(activeItem.currentX, activeItem.currentY, activeItem);
+      }
 };
 
 const setTranslate = function(xPos, yPos, el) {
-  el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  const rotation = Math.floor(Math.random() * 30) - 15;
+  // el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  el.style.transform = `translate3d(${xPos})`
 };
 
 const dragEnd = function(e) {
-  initialX = currentX;
-  initialY = currentY;
+  if (activeItem !== null) {
+        activeItem.initialX = activeItem.currentX;
+        activeItem.initialY = activeItem.currentY;
+      }
 
-  active = false;
+      active = false;
+      activeItem = null;
 };
 
 // stickerSpace.addEventListener("touchstart", dragStart, false);
@@ -91,11 +110,11 @@ const dragEnd = function(e) {
 stickerSpace.addEventListener("mousedown", function (e) {
   if (e.target === stickerSpace) {
     stick(e.clientX, e.clientY);
-    dragItem = "";
+    activeItem = "";
   }
   for (let i = 0; i <= stickers.length; i++) {
     if (e.target === stickers[i]) {
-      dragItem = stickers[i];
+      activeItem = stickers[i];
     }
   }
   dragStart(e)
