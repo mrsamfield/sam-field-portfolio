@@ -72,7 +72,8 @@ const dragStart = function(e) {
 };
 
 const drag = function(e) {
-  console.log(
+if (active) {
+    console.log(
   "activeItem =  ",
   activeItem,
   "active =  ",
@@ -93,7 +94,6 @@ const drag = function(e) {
   rotation,
   "  "
 );
-if (active) {
         if (e.type === "touchmove") {
           e.preventDefault();
 
