@@ -13,9 +13,9 @@ let initialX = "";
 let initialY = "";
 let xOffset = 0;
 let yOffset = 0;
-let rotation = ""
-let midPointX = ""
-let midPointY = ""
+let rotation = "";
+let midPointX = "";
+let midPointY = "";
 
 const labels = [
   { copy: "Hi. I'm Sam" },
@@ -27,7 +27,7 @@ const labels = [
 
 const stick = function(x, y) {
   z = z + 1;
-  const rotation = Math.floor(Math.random() * 30) - 15;
+  const rotation = Math.floor(Math.random() * 10) - 5;
   //Creates a new p element and inserts text
   let sticker = document.createElement("div");
   sticker.innerHTML = labels[slide].copy;
@@ -45,101 +45,79 @@ const stick = function(x, y) {
 //Starts the drag
 const dragStart = function(e) {
   if (e.target !== e.currentTarget) {
-        active = true;
+    active = true;
 
-        // this is the item we are interacting with
-        activeItem = e.target;
-        xOff = activeItem.getBoundingClientRect().width / 2
-        
-    
-        if (activeItem !== null) {
-          if (!activeItem.xOffset) {
-            activeItem.xOffset = 0;
-          }
+    // this is the item we are interacting with
+    activeItem = e.target;
+    let xOff = activeItem.getBoundingClientRect().width / 2;
+    let yOff = activeItem.getBoundingClientRect().height / 2;
 
-          if (!activeItem.yOffset) {
-            activeItem.yOffset = 0;
-          }
-
-          if (e.type === "touchstart") {
-            activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
-            activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
-          } else {
-            console.log("doing something!");
-            activeItem.initialX = e.clientX - activeItem.xOffset;
-            activeItem.initialY = e.clientY - activeItem.yOffset;
-          }
-        }
+    if (activeItem !== null) {
+      if (!activeItem.xOffset) {
+        activeItem.xOffset = -1 * xOff;
       }
+
+      if (!activeItem.yOffset) {
+        activeItem.yOffset = -1 * yOff;
+      }
+
+      if (e.type === "touchstart") {
+        activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
+        activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
+      } else {
+        console.log("doing something!");
+        activeItem.initialX = e.clientX - activeItem.xOffset;
+        activeItem.initialY = e.clientY - activeItem.yOffset;
+      }
+    }
+  }
 };
 
 const drag = function(e) {
-if (active) {
-    console.log(
-  "activeItem =  ",
-  activeItem,
-  "active =  ",
-  active,
-  "currentX =  ",
-  activeItem.currentX,
-  "currentY =  ",
-  activeItem.currentY,
-  "initialX =  ",
-  activeItem.initialX,
-  "initialY =  ",
-  activeItem.initialY,
-  "xOffset =  ",
-  activeItem.xOffset,
-  "yOffset =  ",
-  activeItem.yOffset,
-  "rotation =  ",
-  rotation,
-  "  "
-);
-        if (e.type === "touchmove") {
-          e.preventDefault();
+  if (active) {
+    if (e.type === "touchmove") {
+      e.preventDefault();
 
-          activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
-          activeItem.currentY = e.touches[0].clientY - activeItem.initialY;
-        } else {
-          activeItem.currentX = e.clientX - activeItem.initialX;
-          activeItem.currentY = e.clientY - activeItem.initialY;
-        }
-        
-        activeItem.xOffset = activeItem.currentX;
-        activeItem.yOffset = activeItem.currentY;
+      activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
+      activeItem.currentY = e.touches[0].clientY - activeItem.initialY;
+    } else {
+      activeItem.currentX = e.clientX - activeItem.initialX;
+      activeItem.currentY = e.clientY - activeItem.initialY;
+    }
 
-        setTranslate(activeItem.currentX, activeItem.currentY, activeItem);
-      }
+    activeItem.xOffset = activeItem.currentX;
+    activeItem.yOffset = activeItem.currentY;
+
+    setTranslate(activeItem.currentX, activeItem.currentY, activeItem);
+  }
 };
 
 const setTranslate = function(xPos, yPos, el) {
-  el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) rotate(${rotation}deg)`
+  el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) rotate(${rotation}deg)`;
 };
 
 const dragEnd = function(e) {
   if (activeItem !== null) {
-        activeItem.initialX = activeItem.currentX;
-        activeItem.initialY = activeItem.currentY;
-      }
-      active = false;
-      activeItem = null;
+    activeItem.initialX = activeItem.currentX;
+    activeItem.initialY = activeItem.currentY;
+  }
+  active = false;
+  activeItem = null;
 };
 
-stickerSpace.addEventListener("touchstart", function (e) {
-  dragStart(e)
-})
+stickerSpace.addEventListener("touchstart", function(e) {
+  dragStart(e);
+});
 
-stickerSpace.addEventListener("touchend", function (e) {
-  dragEnd(e)
-})
+stickerSpace.addEventListener("touchend", function(e) {
+  dragEnd(e);
+});
 
-stickerSpace.addEventListener("touchmove", function (e) {
-  drag(e)
-})
+stickerSpace.addEventListener("touchmove", function(e) {
+  drag(e);
+});
 
-
-stickerSpace.addEventListener("mousedown", function (e) {
+stickerSpace.addEventListener("mousedown", function(e) {
   rotation = Math.floor(Math.random() * 10) - 5;
   if (e.target === stickerSpace) {
     stick(e.clientX, e.clientY);
@@ -150,14 +128,14 @@ stickerSpace.addEventListener("mousedown", function (e) {
       activeItem = stickers[i];
     }
   }
-  dragStart(e)
-})
+  dragStart(e);
+});
 
-stickerSpace.addEventListener("mouseup", function (e) {
-  dragEnd(e)
-})
+stickerSpace.addEventListener("mouseup", function(e) {
+  dragEnd(e);
+});
 
 // stickerSpace.addEventListener("mousemove", drag, false);
-stickerSpace.addEventListener("mousemove", function (e) {
-  drag(e)
-})
+stickerSpace.addEventListener("mousemove", function(e) {
+  drag(e);
+});
