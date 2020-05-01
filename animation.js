@@ -15,7 +15,7 @@ const shapes = [];
 const lineWeight = params.height / (numberOfShapes * 2);
 const startWidth = params.width;
 const loopDuration = 10 * 60;
-const aDelay = 0.001;
+const aDelay = 0.05;
 
 const startRotation = 0;
 const endRotation = fullRotation * (180 / 360);
@@ -65,7 +65,8 @@ two.bind("update", function(frameCount) {
     w = -1 * (lineWeight + (startWidth - lineWeight) * easeInOutCubic(u));
     
     if(i % 2) {
-      r = mapAndClamp(t, 0, 1, startRotation, endRotation);
+      u = easeInOutCubic(t)
+      r = mapAndClamp(u, 0, 1, startRotation, endRotation);
     } else {
       r = mapAndClamp(t, 0, 1, endRotation, startRotation);
     }

@@ -216,11 +216,10 @@ div.cursor p.y {
 }
 
 section.about-me div.subsection {
-  width: 40%;
-  min-width: 270px;
-  max-width: 360px;
-  height: 60%;
-  background-color: red;
+  width: 50%;
+  padding: 20%;
+  height: 100%;
+  border: 2px black dotted;
 }
 
 section.about-me div.section-wrap {
