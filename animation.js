@@ -9,7 +9,7 @@ const two = new Two(params);
 two.appendTo(container);
 
 // config for our animation
-const numberOfShapes = 100
+const numberOfShapes = 20
 const shapes = [];
 
 const lineWeight = params.height / (numberOfShapes * 2);
@@ -44,7 +44,7 @@ two.bind("update", function(frameCount) {
   shapes.forEach((shape, i) => {
     //delays
     const aStart = 0.001 * (numberOfShapes - i)
-    const aEnd = 0.001 * i
+    const aEnd = 0.00 * i
     
     //reset rotation
     if (t === 0) {
@@ -68,7 +68,8 @@ two.bind("update", function(frameCount) {
       u = easeInOutCubic(t)
       r = mapAndClamp(u, 0, 1, startRotation, endRotation);
     } else {
-      r = mapAndClamp(t, 0, 1, endRotation, startRotation);
+      u = easeInOutCubic(t)
+      r = mapAndClamp(u, 0, 1, endRotation, startRotation);
     }
 
     shape.rotation = r;
