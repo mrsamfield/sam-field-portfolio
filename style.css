@@ -213,3 +213,11 @@ div.cursor p.y {
   left: 0;
   top: 25px;
 }
+
+section.about-me div {
+  height: 400px;
+  max-height: 80%;
+  width: 20%;
+  min-width: 200px;
+  background-color: red;
+}
