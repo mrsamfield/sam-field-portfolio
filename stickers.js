@@ -50,9 +50,6 @@ const dragStart = function(e) {
         // this is the item we are interacting with
         activeItem = e.target;
     
-        midPointX = 1 * (activeItem.getBoundingClientRect().width / 2)
-        midPointY = 1 * (activeItem.getBoundingClientRect().height / 2)
-    
         if (activeItem !== null) {
           if (!activeItem.xOffset) {
             activeItem.xOffset = 0;
@@ -63,12 +60,12 @@ const dragStart = function(e) {
           }
 
           if (e.type === "touchstart") {
-            activeItem.initialX = e.touches[0].clientX - activeItem.xOffset + midPointX;
-            activeItem.initialY = e.touches[0].clientY - activeItem.yOffset + midPointY;
+            activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
+            activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
           } else {
             console.log("doing something!");
-            activeItem.initialX = e.clientX - activeItem.xOffset + midPointX;
-            activeItem.initialY = e.clientY - activeItem.yOffset + midPointY;
+            activeItem.initialX = e.clientX - activeItem.xOffset;
+            activeItem.initialY = e.clientY - activeItem.yOffset;
           }
         }
       }
@@ -85,7 +82,7 @@ if (active) {
           activeItem.currentX = e.clientX - activeItem.initialX;
           activeItem.currentY = e.clientY - activeItem.initialY;
         }
-
+           
         activeItem.xOffset = activeItem.currentX;
         activeItem.yOffset = activeItem.currentY;
 
