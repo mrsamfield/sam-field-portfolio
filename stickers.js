@@ -72,6 +72,27 @@ const dragStart = function(e) {
 };
 
 const drag = function(e) {
+  console.log(
+  "activeItem =  ",
+  activeItem,
+  "active =  ",
+  active,
+  "currentX =  ",
+  activeItem.currentX,
+  "currentY =  ",
+  activeItem.currentY,
+  "initialX =  ",
+  activeItem.initialX,
+  "initialY =  ",
+  activeItem.initialY,
+  "xOffset =  ",
+  activeItem.xOffset,
+  "yOffset =  ",
+  activeItem.yOffset,
+  "rotation =  ",
+  rotation,
+  "  "
+);
 if (active) {
         if (e.type === "touchmove") {
           e.preventDefault();
@@ -82,7 +103,7 @@ if (active) {
           activeItem.currentX = e.clientX - activeItem.initialX;
           activeItem.currentY = e.clientY - activeItem.initialY;
         }
-           
+        
         activeItem.xOffset = activeItem.currentX;
         activeItem.yOffset = activeItem.currentY;
 
