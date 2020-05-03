@@ -23,7 +23,7 @@ const elipsesStartPosition = function (n) {
 } 
 
 // make shapes
-for (let i = 0; i < numberOfShapes; i++) { 
+for (let i = 0; i < numberOfElipses; i++) { 
   const dot = elipsesTwo.makeCircle(elipsesStartPosition(i), elipsesParams.height - dotSize, dotSize);
   dot.fill = "#000000"
   dot.noStroke()
@@ -35,7 +35,7 @@ elipsesTwo.bind("update", function (frameCount) {
   const t = currentFrame / loopDuration
   dots.forEach((dot, i) => {
     const startDelay = delay * i
-    const endDelay = delay * (numberOfShapes - i) - 0.01
+    const endDelay = delay * (numberOfElipses - i) - 0.01
 
   let h = 0  
   
