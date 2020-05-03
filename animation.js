@@ -9,7 +9,7 @@ const two = new Two(params);
 two.appendTo(container);
 
 // config for our animation
-const numberOfShapes = 20
+const numberOfShapes = 100
 const shapes = [];
 
 const lineWeight = params.height / (numberOfShapes * 2);
