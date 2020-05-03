@@ -42,11 +42,11 @@ elipsesTwo.bind("update", function (frameCount) {
   if (t <= 0.5) {
     const u = mapAndClamp(t, 0 + startDelay, 0.5 - endDelay, 0, 1)
     const ue = easeInOutCubic(u)
-    h = mapAndClamp(ue, 0, 1, minHeight, maxHeight)
+    h = mapAndClamp(ue, 0, 1, elipsesMinHeight, elipsesMaxHeight)
   } else {
     const u = mapAndClamp(t, 0.5 + startDelay, 1 - endDelay, 1, 0)
     const ue = easeInOutCubic(u)
-    h = mapAndClamp(ue, 1, 0, maxHeight, minHeight)
+    h = mapAndClamp(ue, 1, 0, elipsesMaxHeight, elipsesMinHeight)
   }
   
   dot.translation.set(startPosition(i), h)
