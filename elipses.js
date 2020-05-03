@@ -32,7 +32,8 @@ for (let i = 0; i < numberOfElipses; i++) {
 
 elipsesTwo.bind("update", function (frameCount) {
   const currentFrame = frameCount % elipsesLoopDuration
-  const t = currentFrame / elipsesLoopDuration
+  const t = easeInOutCubic(currentFrame / elipsesLoopDuration)
+
   dots.forEach((dot, i) => {
     const startDelay = delay * i
     const endDelay = delay * (numberOfElipses - i) - 0.01
@@ -41,12 +42,10 @@ elipsesTwo.bind("update", function (frameCount) {
   
   if (t <= 0.5) {
     const u = mapAndClamp(t, 0 + startDelay, 0.5 - endDelay, 0, 1)
-    const ue = easeInOutCubic(u)
-    h = mapAndClamp(ue, 0, 1, elipsesMinHeight, elipsesMaxHeight)
+    h = mapAndClamp(u, 0, 1, elipsesMinHeight, elipsesMaxHeight)
   } else {
     const u = mapAndClamp(t, 0.5 + startDelay, 1 - endDelay, 1, 0)
-    const ue = easeInOutCubic(u)
-    h = mapAndClamp(ue, 1, 0, elipsesMaxHeight, elipsesMinHeight)
+    h = mapAndClamp(u, 1, 0, elipsesMaxHeight, elipsesMinHeight)
   }
   
   dot.translation.set(elipsesStartPosition(i), h)
