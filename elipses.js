@@ -31,8 +31,8 @@ for (let i = 0; i < numberOfElipses; i++) {
 }
 
 elipsesTwo.bind("update", function (frameCount) {
-  const currentFrame = frameCount % loopDuration
-  const t = currentFrame / loopDuration
+  const currentFrame = frameCount % elipsesLoopDuration
+  const t = currentFrame / elipsesLoopDuration
   dots.forEach((dot, i) => {
     const startDelay = delay * i
     const endDelay = delay * (numberOfElipses - i) - 0.01
