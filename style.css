@@ -174,7 +174,7 @@ section.about-me.open {
 }
 
 section.about-me h1 {
-  width: 500px;
+  display: inline-block;
   max-width: 80vw;
   text-align: left;
   color: #000000;
