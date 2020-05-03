@@ -1,36 +1,36 @@
 const elipsesBox = document.querySelector("div.animated-elipses")
 
-const params = { 
+const elipsesParams = { 
   width: elipsesBox.getBoundingClientRect().width, 
   height: elipsesBox.getBoundingClientRect().height 
 }
 
-const two = new Two(params)
-two.appendTo(elipsesBox)
+const elipsesTwo = new Two(elipsesParams)
+elipsesTwo.appendTo(elipsesBox)
 
 // config for our animation
-const numberOfShapes = 3
-const loopDuration = 2 * 60
+const numberOfElipses = 3
+const elipsesLoopDuration = 2 * 60
 const dots = []
-const dotSize = 2
-const minHeight = params.height - dotSize
-const maxHeight = params.height * 0.7
+const dotSize = 1.5
+const elipsesMinHeight = elipsesParams.height - dotSize
+const elipsesMaxHeight = elipsesParams.height * 0.7
 const delay = 0.05
 
 
-const startPosition = function (n) {
+const elipsesStartPosition = function (n) {
   return n * (dotSize * 4) + 5
 } 
 
 // make shapes
 for (let i = 0; i < numberOfShapes; i++) { 
-  const dot = two.makeCircle(startPosition(i), params.height - dotSize, dotSize);
+  const dot = elipsesTwo.makeCircle(elipsesStartPosition(i), elipsesParams.height - dotSize, dotSize);
   dot.fill = "#000000"
   dot.noStroke()
   dots.push(dot)
 }
 
-two.bind("update", function (frameCount) {
+elipsesTwo.bind("update", function (frameCount) {
   const currentFrame = frameCount % loopDuration
   const t = currentFrame / loopDuration
   dots.forEach((dot, i) => {
