@@ -222,4 +222,21 @@ div.cursor p.y {
   top: 25px;
 }
 
+div.hwrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: baseline;
+}
+
+div.animated-elipses {
+  display: inline-block;
+  height: 25px;
+  width: 30px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
 
