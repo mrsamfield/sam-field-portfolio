@@ -128,7 +128,7 @@ stickerSpace.addEventListener("mousedown", function(e) {
   for (let i = 0; i <= stickers.length; i++) {
     if (e.target === stickers[i]) {
       activeItem = stickers[i];
-      activeItem.style.zIndex = topLabel
+      activeItem.style.zIndex = topLabel + 1
       topLabel += 1
     }
   }
