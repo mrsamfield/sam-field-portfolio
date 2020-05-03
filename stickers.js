@@ -3,6 +3,7 @@ const stickerSpace = document.querySelector("div.stickerSpace");
 let slide = 0;
 let z = 1;
 let stickers = [];
+let topLabel = 1
 
 //for drag
 let activeItem = "";
@@ -40,6 +41,7 @@ const stick = function(x, y) {
   document.getElementById("stickerSpace").appendChild(sticker);
   slide = slide + 1;
   stickers.push(sticker);
+  topLabel += 1
 };
 
 //Starts the drag
@@ -126,7 +128,8 @@ stickerSpace.addEventListener("mousedown", function(e) {
   for (let i = 0; i <= stickers.length; i++) {
     if (e.target === stickers[i]) {
       activeItem = stickers[i];
-      activeItem.style.zIndex += 20
+      activeItem.style.zIndex = topLabel
+      topLabel += 1
     }
   }
   dragStart(e);
