@@ -242,6 +242,7 @@ div.hwrap {
   justify-content: left;
   align-items: baseline;
   background-color: #ffffff;
+  margin-bottom: 15px;
 }
 
 div.animated-elipses {
