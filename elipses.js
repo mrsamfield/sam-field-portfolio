@@ -49,7 +49,7 @@ elipsesTwo.bind("update", function (frameCount) {
     h = mapAndClamp(ue, 1, 0, elipsesMaxHeight, elipsesMinHeight)
   }
   
-  dot.translation.set(startPosition(i), h)
+  dot.translation.set(elipsesStartPosition(i), h)
 
 })
 
