@@ -188,6 +188,13 @@ section.about-me p {
   max-width: 80vw;
 }
 
+section.about-me div.text-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 div.cursor {
   position: absolute;
   height: 10px;
