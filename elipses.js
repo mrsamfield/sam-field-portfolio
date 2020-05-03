@@ -14,7 +14,7 @@ const elipsesLoopDuration = 2 * 60
 const dots = []
 const dotSize = 1.5
 const elipsesMinHeight = elipsesParams.height - dotSize
-const elipsesMaxHeight = elipsesParams.height * 0.7
+const elipsesMaxHeight = elipsesParams.height * 0.8
 const delay = 0.05
 
 
