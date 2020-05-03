@@ -178,6 +178,7 @@ section.about-me h1 {
   max-width: 80vw;
   text-align: left;
   color: #000000;
+  background-color: green;
 }
 
 section.about-me p {
@@ -239,6 +240,7 @@ div.hwrap {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: baseline;
+  background-color: #ffffff;
 }
 
 div.animated-elipses {
@@ -249,6 +251,7 @@ div.animated-elipses {
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: baseline;
+  background-color: grey;
 }
 
 
