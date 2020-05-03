@@ -222,6 +222,18 @@ div.cursor p.y {
   top: 25px;
 }
 
+@media (hover: none) {
+  div.cursor {
+    display: none;
+  }
+  div.cursor p {
+    display: none;
+  }
+  div.cursor p.y {
+    display: none;
+  }
+}
+
 div.hwrap {
   display: flex;
   flex-flow: row nowrap;

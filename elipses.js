@@ -56,4 +56,4 @@ elipsesTwo.bind("update", function (frameCount) {
 
 })
 
-two.play()
+elipsesTwo.play()
